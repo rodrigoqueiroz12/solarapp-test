@@ -5,6 +5,7 @@ import AddressSkeleton from "./AddressSkeleton"
 import AddressButton from "./AddressButton"
 import { Address } from "@/app/@types/solarpipe-address"
 import { Input } from "@/app/components/ui/input"
+import { getState } from "@/app/lib/utils"
 
 export default function AddressList() {
 	const [filterTerm, setFilterTerm] = useState("")
@@ -44,11 +45,19 @@ export default function AddressList() {
 				.toLocaleLowerCase()
 				.includes(filterTerm.toLocaleLowerCase())
 
-			const matchState = address.state
+			const matchState = getState(address.state)
 				.toLocaleLowerCase()
 				.includes(filterTerm.toLocaleLowerCase())
 
 			const matchZipcode = address.zipcode
+				.toLocaleLowerCase()
+				.includes(filterTerm.toLocaleLowerCase())
+
+			const matchUf = address.state
+				.toLocaleLowerCase()
+				.includes(filterTerm.toLocaleLowerCase())
+
+			const matchCity = address.city
 				.toLocaleLowerCase()
 				.includes(filterTerm.toLocaleLowerCase())
 
@@ -58,7 +67,9 @@ export default function AddressList() {
 				matchNumber ||
 				matchNeighborhood ||
 				matchState ||
-				matchZipcode
+				matchZipcode ||
+				matchCity ||
+				matchUf
 			)
 		})
 	})()
@@ -113,7 +124,11 @@ export default function AddressList() {
 									{address.description}
 								</strong>
 								<span className="text-xs text-start text-muted-foreground">
-									{`${address.streetName}, ${address.streetNumber}, ${address.neighbourhood}, ${address.city}, ${address.state} - ${address.state}, ${address.zipcode}`}
+									{`${address.streetName}, ${address.streetNumber}, ${
+										address.neighbourhood
+									}, ${address.city}, ${getState(address.state)} - ${
+										address.state
+									}, ${address.zipcode}`}
 								</span>
 							</AddressButton>
 						</li>
