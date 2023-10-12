@@ -6,7 +6,7 @@ You can visit the project by [clicking here](https://solarapp-test.vercel.app/)
 
 ![](./.github/preview.png)
 
-## Instalação
+## Cloning
 
 1. Clone the repository: `git clone https://github.com/rodrigoqueiroz12/solarapp-test.git`
 2. Navigate to the project directory: `cd .\solarapp-test\`
@@ -22,6 +22,6 @@ pnpm dev
 bun dev
 ```
 
-## Contato
+## Contact
 
 If you'd like to get in touch, you can reach me at [rodrigo.queiroz0629@gmail.com].
