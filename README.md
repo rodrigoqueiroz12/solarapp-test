@@ -24,4 +24,4 @@ bun dev
 
 ## Contact
 
-If you'd like to get in touch, you can reach me at [rodrigo.queiroz0629@gmail.com].
+If you'd like to get in touch, you can reach me at (rodrigo.queiroz0629@gmail.com)[rodrigo.queiroz0629@gmail.com].
