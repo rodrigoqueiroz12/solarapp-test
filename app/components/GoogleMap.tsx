@@ -8,7 +8,6 @@ import {
 import { Skeleton } from "./ui/skeleton"
 import { useAddressContext } from "../contexts/AddressContext"
 import { Address } from "../@types/solarpipe-address"
-import { Card } from "./ui/card"
 
 const containerStyle = {
 	width: "100%",
@@ -25,6 +24,7 @@ export default function GoogleMap() {
 
 	return isLoaded && addresses ? (
 		<Map
+			clickableIcons={false}
 			mapContainerStyle={containerStyle}
 			center={
 				selectedAddress
