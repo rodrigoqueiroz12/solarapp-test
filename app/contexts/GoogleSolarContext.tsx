@@ -23,12 +23,15 @@ export default function SolarContextProvider({
 }) {
 	const { selectedAddress } = useAddressContext()
 
-	const { data, isLoading } = useSWR(
-		selectedAddress
-			? `${process.env.NEXT_PUBLIC_GOOGLE_MAPS_SOLAR_API}&location.latitude=${selectedAddress.latitude}&location.longitude=${selectedAddress.longitude}&requiredQuality=HIGH`
-			: null,
-		fetcher
-	)
+	const apiUrl = selectedAddress
+		? `${process.env.NEXT_PUBLIC_GOOGLE_MAPS_SOLAR_API}&location.latitude=${selectedAddress.latitude}&location.longitude=${selectedAddress.longitude}&requiredQuality=HIGH`
+		: null
+
+	const { data, isLoading } = useSWR(apiUrl, fetcher, {
+		errorRetryCount: 0,
+		revalidateOnFocus: false,
+		shouldRetryOnError: false,
+	})
 
 	return (
 		<SolarContext.Provider

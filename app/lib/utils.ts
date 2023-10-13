@@ -5,7 +5,17 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
-export const fetcher = (url: string) => fetch(url).then(r => r.json())
+export const fetcher = (url: string) =>
+	fetch(url)
+		.then(r => {
+			if (!r.ok) {
+				throw new Error(`${r.status} - ${r.statusText}`)
+			}
+			return r.json()
+		})
+		.catch(error => {
+			console.error(error)
+		})
 
 export function getState(uf: string): string {
 	const states: { [key: string]: string } = {

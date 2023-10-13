@@ -30,7 +30,7 @@ export default function AddressInformation() {
 		)
 	}
 
-	if (buildingInsight && buildingInsight.error) {
+	if (!buildingInsight || buildingInsight.error) {
 		return (
 			<Card className="flex flex-col p-4">
 				<strong className="text-sm mb-2">{selectedAddress.description}</strong>
