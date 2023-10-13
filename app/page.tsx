@@ -4,8 +4,10 @@ import Link from "next/link"
 export default function Home() {
 	return (
 		<main className="h-screen w-screen flex flex-col items-center justify-center">
-			<h1 className="text-4xl font-bold mb-4">Welcome to SolarApp Test 😁🗺️</h1>
-			<p className="flex gap-2 text-xl mb-8">
+			<h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4">
+				Welcome to SolarApp Test 😁🗺️
+			</h1>
+			<p className="flex gap-2 text-sm sm:text-lg md:text-xl mb-4 md:mb-8">
 				This is a technical test from
 				<a
 					href="https://deltasistemas.net/"
